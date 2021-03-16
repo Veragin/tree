@@ -215,7 +215,7 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
   };
 
   // Disabled item still can be switch
-  onExpand: React.MouseEventHandler<HTMLDivElement> = e => {
+  onExpand: React.MouseEventHandler<HTMLDivElement> = (e) => {
     const {
       loading,
       context: { onNodeExpand },
@@ -225,7 +225,7 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
   };
 
   // Drag usage
-  setSelectHandle = node => {
+  setSelectHandle = (node) => {
     this.selectHandle = node;
   };
 
@@ -285,7 +285,7 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
   };
 
   // Load data to avoid default expanded tree without data
-  syncLoadData = props => {
+  syncLoadData = (props) => {
     const { expanded, loading, loaded } = props;
     const {
       context: { loadData, onNodeLoad },
@@ -467,11 +467,11 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
         onContextMenu={this.onContextMenu}
         onClick={this.onSelectorClick}
         onDoubleClick={this.onSelectorDoubleClick}
-        onDragStart={mergedDraggable ? this.onDragStart : undefined}
+        onDragStart={undefined && mergedDraggable ? this.onDragStart : undefined}
       >
         {$icon}
         {$title}
-        {this.renderDropIndicator()}
+        {null && this.renderDropIndicator()}
       </span>
     );
   };
@@ -557,11 +557,11 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
         })}
         style={style}
         onDragEnter={mergedDraggable ? this.onDragEnter : undefined}
-        onDragOver={mergedDraggable ? this.onDragOver : undefined}
-        onDragLeave={mergedDraggable ? this.onDragLeave : undefined}
+        onDragOver={undefined && mergedDraggable ? this.onDragOver : undefined}
+        onDragLeave={undefined && mergedDraggable ? this.onDragLeave : undefined}
         onDrop={mergedDraggable ? this.onDrop : undefined}
         onDragEnd={mergedDraggable ? this.onDragEnd : undefined}
-        onMouseMove={onMouseMove}
+        onMouseMove={undefined && onMouseMove}
         {...dataOrAriaAttributeProps}
       >
         <Indent prefixCls={prefixCls} level={level} isStart={isStart} isEnd={isEnd} />
@@ -573,9 +573,9 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
   }
 }
 
-const ContextTreeNode: React.FC<TreeNodeProps> = props => (
+const ContextTreeNode: React.FC<TreeNodeProps> = (props) => (
   <TreeContext.Consumer>
-    {context => <InternalTreeNode {...props} context={context} />}
+    {(context) => <InternalTreeNode {...props} context={context} />}
   </TreeContext.Consumer>
 );
 
