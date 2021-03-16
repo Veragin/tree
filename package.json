@@ -1,7 +1,7 @@
 {
-  "name": "rc-tree",
+  "name": "rc-tree-ondrag-optional",
   "version": "4.1.5",
-  "description": "tree ui component for react",
+  "description": "fork of rc-tree",
   "engines": {
     "node": ">=8.x"
   },
