@@ -1,6 +1,6 @@
 {
   "name": "rc-tree-ondrag-optional",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "fork of rc-tree",
   "engines": {
     "node": ">=8.x"
