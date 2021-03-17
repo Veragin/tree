@@ -467,7 +467,7 @@ class InternalTreeNode extends React.Component<InternalTreeNodeProps, TreeNodeSt
         onContextMenu={this.onContextMenu}
         onClick={this.onSelectorClick}
         onDoubleClick={this.onSelectorDoubleClick}
-        onDragStart={undefined && mergedDraggable ? this.onDragStart : undefined}
+        onDragStart={mergedDraggable ? this.onDragStart : undefined}
       >
         {$icon}
         {$title}

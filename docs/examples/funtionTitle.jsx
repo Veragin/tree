@@ -3,7 +3,7 @@ import '../../assets/index.less';
 import './animation.less';
 import React, { useState } from 'react';
 import Tree from 'rc-tree';
-import data from './longData.json';
+import data from './longData';
 
 const STYLE = `
 .rc-tree-child-tree {
